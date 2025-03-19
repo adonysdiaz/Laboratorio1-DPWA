@@ -1,0 +1,19 @@
+﻿ @model List<Alumnos>
+
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="container text-center mt-5">
+    <h1 class="display-4">Bienvenido a NotasUnivo</h1>
+    <p class="lead">Sistema de gestión de alumnos desarrollado en ASP.NET Core MVC</p>
+
+    <hr class="my-4">
+
+    <h3>Administración de Alumnos</h3>
+    <p>Aquí puedes gestionar los registros de alumnos: agregar, actualizar o eliminar información.</p>
+
+    <a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Alumnos")">
+        Ver lista de alumnos
+    </a>
+</div>

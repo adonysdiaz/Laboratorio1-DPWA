@@ -1,0 +1,39 @@
+﻿@model List<Alumnos>
+
+<h2>Lista de Alumnos</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <p>No existen valores en la tabla Alumnos</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>Carnet</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var alumno in Model)
+            {
+                <tr>
+                    <td>@alumno.AlumnoId</td>
+                    <td>@alumno.Nombres</td>
+                    <td>@alumno.Apellidos</td>
+                    <td>@alumno.Edad</td>
+                    <td>@alumno.Carnet</td>
+                    <td>
+                        <a href="@Url.Action("Upsert", "Alumnos", new { id = alumno.AlumnoId })">Editar</a> |
+                        <a href="@Url.Action("Delete", "Alumnos", new { id = alumno.AlumnoId })" onclick="return confirm('¿Estás seguro de eliminar este alumno?');">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
